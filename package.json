@@ -1,0 +1,74 @@
+{
+  "name": "audio-transcriber",
+  "version": "1.0.0",
+  "description": "A standalone audio transcription library using Whisper",
+  "main": "electron/main.js",
+  "bin": {
+    "transcribe": "./cli.js"
+  },
+  "scripts": {
+    "test": "node test.js",
+    "start": "node cli.js",
+    "electron": "electron .",
+    "electron-dev": "electron . --dev",
+    "setup-whisper": "node scripts/setup-whisper.js",
+    "build": "electron-builder",
+    "build-mac": "electron-builder --mac",
+    "build-win": "electron-builder --win",
+    "build-linux": "electron-builder --linux"
+  },
+  "keywords": [
+    "audio",
+    "transcription",
+    "whisper",
+    "speech-to-text",
+    "ffmpeg",
+    "electron",
+    "desktop-app"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/audio-transcriber.git"
+  },
+  "build": {
+    "appId": "com.yourname.audio-transcriber",
+    "productName": "Audio Transcriber",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "index.js",
+      "node_modules/**/*",
+      "!node_modules/python-whisper/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "python-whisper",
+        "to": "python-whisper",
+        "filter": ["**/*"]
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+} 
