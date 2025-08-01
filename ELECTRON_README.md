@@ -15,7 +15,7 @@ A beautiful, cross-platform desktop application for audio transcription using Op
 ![Results Display](screenshots/saving-document.png)
 *Completed transcription with save and copy functionality*
 
-![Settings Panel](screenshots/file-options.png)
+![Settings Panel](screenshots/file-options2.png)
 *Advanced configuration options for transcription settings*
 
 ![Model Selection](screenshots/models-options.png)
