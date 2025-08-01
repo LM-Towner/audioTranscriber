@@ -15,7 +15,7 @@ A standalone audio transcription library using OpenAI's Whisper model. This libr
 ![Saving the document](screenshots/saving-document.png)
 *Results display with save and copy options*
 
-![File options](screenshots/file-options.png)
+![File options](screenshots/file-options2.png)
 *Transcription settings and configuration panel*
 
 ![Models options](screenshots/models-options.png)
