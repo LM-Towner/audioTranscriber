@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Transcriber</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-microphone"></i>
+                <h1>Audio Transcriber</h1>
+            </div>
+            <div class="version" id="version"></div>
+        </header>
+
+        <main class="main-content">
+            <!-- File Selection Section -->
+            <section class="file-section">
+                <div class="file-drop-zone" id="dropZone">
+                    <div class="drop-zone-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Drop audio file here or click to browse</h3>
+                        <p>Supports: MP3, WAV, M4A, WebM, MP4, OGG, FLAC, AAC</p>
+                        <button class="btn btn-primary" id="selectFileBtn">
+                            <i class="fas fa-folder-open"></i>
+                            Select Audio File
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="selected-file" id="selectedFile" style="display: none;">
+                    <div class="file-info">
+                        <i class="fas fa-music"></i>
+                        <div class="file-details">
+                            <span class="filename" id="filename"></span>
+                            <span class="filesize" id="filesize"></span>
+                        </div>
+                        <button class="btn btn-secondary" id="changeFileBtn">
+                            <i class="fas fa-edit"></i>
+                            Change
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="settings-section">
+                <h3><i class="fas fa-cog"></i> Transcription Settings</h3>
+                
+                <div class="settings-grid">
+                    <div class="setting-group">
+                        <label for="whisperModel">Whisper Model:</label>
+                        <select id="whisperModel" class="form-control">
+                            <option value="tiny">Tiny (fastest, least accurate)</option>
+                            <option value="base">Base (fast, good accuracy)</option>
+                            <option value="small">Small (balanced)</option>
+                            <option value="medium" selected>Medium (recommended)</option>
+                            <option value="large">Large (slowest, most accurate)</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="outputFormat">Output Format:</label>
+                        <select id="outputFormat" class="form-control">
+                            <option value="txt" selected>Plain Text (.txt)</option>
+                            <option value="srt">SubRip (.srt)</option>
+                            <option value="json">JSON (.json)</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="includeTimestamps">
+                            <span class="checkmark"></span>
+                            Include timestamps
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Whisper Status -->
+            <section class="status-section" id="whisperStatus">
+                <div class="status-card">
+                    <div class="status-icon">
+                        <i class="fas fa-spinner fa-spin" id="statusIcon"></i>
+                    </div>
+                    <div class="status-content">
+                        <h4 id="statusTitle">Checking Whisper availability...</h4>
+                        <p id="statusMessage">Please wait while we check your system configuration.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Section -->
+            <section class="action-section">
+                <button class="btn btn-primary btn-large" id="transcribeBtn" disabled>
+                    <i class="fas fa-play"></i>
+                    Start Transcription
+                </button>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="progress-section" id="progressSection" style="display: none;">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Processing...</div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h3><i class="fas fa-file-alt"></i> Transcription Results</h3>
+                    <div class="results-actions">
+                        <button class="btn btn-secondary" id="copyBtn">
+                            <i class="fas fa-copy"></i>
+                            Copy
+                        </button>
+                        <button class="btn btn-primary" id="saveBtn">
+                            <i class="fas fa-save"></i>
+                            Save File
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="results-content">
+                    <div class="results-info" id="resultsInfo"></div>
+                    <div class="transcript-container">
+                        <textarea class="transcript-text" id="transcriptText" readonly></textarea>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Powered by OpenAI Whisper • <a href="#" id="helpLink">Help & Documentation</a></p>
+        </footer>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html> 
