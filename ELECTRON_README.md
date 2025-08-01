@@ -2,12 +2,36 @@
 
 A beautiful, cross-platform desktop application for audio transcription using OpenAI's Whisper model. This Electron app provides an intuitive GUI for transcribing audio files with multiple output formats and options.
 
+## 📸 Application Screenshots
+
+### User Interface Walkthrough
+
+![Main Interface](screenshots/opening-file.png)
+*Clean, modern interface with drag-and-drop file selection*
+
+![Transcription Progress](screenshots/file-transcribing.png)
+*Real-time progress tracking during audio processing*
+
+![Results Display](screenshots/saving-document.png)
+*Completed transcription with save and copy functionality*
+
+![Settings Panel](screenshots/file-options.png)
+*Advanced configuration options for transcription settings*
+
+![Model Selection](screenshots/models-options.png)
+*Whisper model options with performance characteristics*
+
 ## 🚀 Features
 
 - **🎨 Modern UI**: Beautiful, responsive interface with drag-and-drop support
 - **🎵 Multi-format Support**: MP3, WAV, M4A, WebM, MP4, OGG, FLAC, AAC
 - **⏱️ Timestamp Options**: Include precise timestamps in transcripts
 - **🎯 Multiple Models**: Choose from tiny, base, small, medium, large Whisper models
+  - **Tiny**: Fastest, least accurate (39M parameters)
+  - **Base**: Fast, good accuracy (74M parameters)  
+  - **Small**: Balanced speed/accuracy (244M parameters)
+  - **Medium**: Recommended (769M parameters)
+  - **Large**: Slowest, most accurate (1550M parameters)
 - **📄 Multiple Formats**: Export as TXT, SRT, or JSON
 - **🌐 Web API Fallback**: Use OpenAI's Whisper API when local Whisper isn't available
 - **🔄 Hybrid Mode**: Try local first, fallback to web API

@@ -2,11 +2,35 @@
 
 A standalone audio transcription library using OpenAI's Whisper model. This library provides both a Node.js API and a command-line interface for transcribing audio files.
 
+## 📸 Screenshots
+
+### Desktop Application Interface
+
+![Opening the file](screenshots/opening-file.png)
+*Main interface with drag-and-drop file selection*
+
+![File Transcribing](screenshots/file-transcribing.png)
+*Real-time transcription progress with status updates*
+
+![Saving the document](screenshots/saving-document.png)
+*Results display with save and copy options*
+
+![File options](screenshots/file-options.png)
+*Transcription settings and configuration panel*
+
+![Models options](screenshots/models-options.png)
+*Whisper model selection with size and accuracy details*
+
 ## Features
 
 - 🎵 **Multiple Audio Formats**: Supports WebM, WAV, MP3, M4A, MP4, OGG, FLAC, AAC
 - ⏱️ **Optional Timestamps**: Include timestamps in your transcripts
 - 🎯 **Multiple Whisper Models**: Choose from tiny, base, small, medium, large
+  - **Tiny**: Fastest, least accurate (39M parameters)
+  - **Base**: Fast, good accuracy (74M parameters)
+  - **Small**: Balanced speed/accuracy (244M parameters)
+  - **Medium**: Recommended (769M parameters)
+  - **Large**: Slowest, most accurate (1550M parameters)
 - 🔧 **Flexible Output Formats**: TXT, SRT, JSON
 - 🛡️ **Error Handling**: Graceful fallback to mock mode if Whisper isn't available
 - 🧹 **Auto Cleanup**: Automatically cleans up temporary files
